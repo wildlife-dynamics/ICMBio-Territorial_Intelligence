@@ -1,0 +1,28 @@
+iguacu-caca-jan-jun-2026:
+  name: Iguaçu Relatório de Inteligência Territorial — Caça
+  description: Hunting-events territorial intelligence report for Parque Nacional do Iguaçu.
+  params:
+    workflow_details:
+      name: Relatório de Inteligência Territorial
+      description: ""
+    er_client:
+      data_source:
+        name: parnaiguacu
+    time_range:
+      since: "2026-01-01T00:00:00.000Z"
+      until: "2026-07-01T00:00:00.000Z"
+    base_maps:
+      base_maps:
+        - url: >-
+            https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}
+          opacity: 1
+        - url: >-
+            https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
+          opacity: 0.5
+    hotspots_clustered:
+      radius_km: 4.0
+      min_events: 3
+    download_attachments:
+      skip_download: true
+    report_template_path:
+      var: "file:///workspace/resources/templates/relatorio_inteligencia_territorial_caca_template.docx"
