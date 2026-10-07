@@ -188,9 +188,6 @@ workflow:
 
       - id: locais_ativos_count
         task: dataframe_count
-        skipif:
-          conditions:
-            - never
         partial:
           df: ${{ workflow.locais_ativos_events.return }}
 
@@ -220,9 +217,6 @@ workflow:
 
       - id: locais_inativos_count
         task: dataframe_count
-        skipif:
-          conditions:
-            - never
         partial:
           df: ${{ workflow.locais_inativos_events.return }}
 
@@ -252,9 +246,6 @@ workflow:
 
       - id: infrator_count
         task: dataframe_count
-        skipif:
-          conditions:
-            - never
         partial:
           df: ${{ workflow.infrator_events.return }}
 
@@ -530,9 +521,6 @@ workflow:
 
       - id: agrupamentos_count
         task: dataframe_count
-        skipif:
-          conditions:
-            - never
         partial:
           df: ${{ workflow.hotspots_summary.return }}
 
@@ -765,25 +753,16 @@ workflow:
 
       - id: estruturas_ativas_count
         task: dataframe_count
-        skipif:
-          conditions:
-            - never
         partial:
           df: ${{ workflow.active_structures.return }}
 
       - id: total_distance_km_value
         task: ecoscope_workflows_ext_icmbio.tasks.extract_quantity_value
-        skipif:
-          conditions:
-            - never
         partial:
           value: ${{ workflow.total_distance_km.return }}
 
       - id: tdea_ratio
         task: apply_arithmetic_operation
-        skipif:
-          conditions:
-            - never
         partial:
           a: ${{ workflow.estruturas_ativas_count.return }}
           b: ${{ workflow.total_distance_km_value.return }}
@@ -791,9 +770,6 @@ workflow:
 
       - id: tdea_index
         task: apply_arithmetic_operation
-        skipif:
-          conditions:
-            - never
         partial:
           a: ${{ workflow.tdea_ratio.return }}
           b: 100
