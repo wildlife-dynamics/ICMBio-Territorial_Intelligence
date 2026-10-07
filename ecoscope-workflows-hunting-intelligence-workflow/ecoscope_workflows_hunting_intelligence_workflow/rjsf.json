@@ -292,50 +292,6 @@
         }
       }
     },
-    "Hunting Events": {
-      "type": "object",
-      "description": "Fetch and resolve all Ca\u00e7a (hunting) events in the reporting period.",
-      "ecoscope:task_group": true,
-      "properties": {
-        "events_raw": {
-          "additionalProperties": false,
-          "properties": {
-            "event_states": {
-              "default": null,
-              "items": {
-                "type": "string",
-                "oneOf": [
-                  {
-                    "const": "new",
-                    "title": "New"
-                  },
-                  {
-                    "const": "active",
-                    "title": "Active"
-                  },
-                  {
-                    "const": "resolved",
-                    "title": "Resolved"
-                  },
-                  {
-                    "const": "review",
-                    "title": "Review"
-                  }
-                ]
-              },
-              "title": "Event State",
-              "type": "array",
-              "description": "Choose to analyze events with a certain state. If left empty, events of all states will be analyzed",
-              "uniqueItems": true,
-              "ecoscope:advanced": true
-            }
-          },
-          "required": [],
-          "type": "object",
-          "title": ""
-        }
-      }
-    },
     "Distribui\u00e7\u00e3o Territorial e Hotspots": {
       "type": "object",
       "description": "General events map, spatial density, and exploratory hotspot clustering.",
@@ -424,22 +380,6 @@
         "relocs_in_bounds": {
           "additionalProperties": false,
           "properties": {
-            "bounding_box": {
-              "allOf": [
-                {
-                  "$ref": "#/$defs/BoundingBox"
-                }
-              ],
-              "default": {
-                "min_y": -90.0,
-                "max_y": 90.0,
-                "min_x": -180.0,
-                "max_x": 180.0
-              },
-              "title": "Bounding Box",
-              "description": "Filter events to inside these bounding coordinates.",
-              "ecoscope:advanced": true
-            },
             "filter_point_coords": {
               "default": [],
               "items": {
@@ -586,36 +526,6 @@
       "title": "ViewportSettings",
       "type": "object"
     },
-    "BoundingBox": {
-      "properties": {
-        "min_y": {
-          "default": -90.0,
-          "ecoscope:advanced": true,
-          "title": "Min Latitude",
-          "type": "number"
-        },
-        "max_y": {
-          "default": 90.0,
-          "ecoscope:advanced": true,
-          "title": "Max Latitude",
-          "type": "number"
-        },
-        "min_x": {
-          "default": -180.0,
-          "ecoscope:advanced": true,
-          "title": "Min Longitude",
-          "type": "number"
-        },
-        "max_x": {
-          "default": 180.0,
-          "ecoscope:advanced": true,
-          "title": "Max Longitude",
-          "type": "number"
-        }
-      },
-      "title": "BoundingBox",
-      "type": "object"
-    },
     "Coordinate": {
       "properties": {
         "y": {
@@ -668,13 +578,7 @@
       "ui:order": [
         "patrol_observations",
         "relocs_in_bounds"
-      ],
-      "relocs_in_bounds": {
-        "ui:order": [
-          "bounding_box",
-          "filter_point_coords"
-        ]
-      }
+      ]
     },
     "download_attachments": {
       "ui:order": [
@@ -688,7 +592,6 @@
       "time_range",
       "base_maps",
       "Map Viewport",
-      "Hunting Events",
       "Distribui\u00e7\u00e3o Territorial e Hotspots",
       "Patrol Effort",
       "download_attachments",

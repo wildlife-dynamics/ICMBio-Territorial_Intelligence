@@ -286,6 +286,7 @@ def main(params: dict[str, Any], validate_params_schema: bool = True):
             client=er_client,
             time_range=time_range,
             event_types=["caceria"],
+            event_states=[],
             event_columns=[
                 "id",
                 "time",
@@ -1574,6 +1575,7 @@ def main(params: dict[str, Any], validate_params_schema: bool = True):
             df=relocs,
             roi_gdf=None,
             roi_name=None,
+            bounding_box=None,
             reset_index=True,
             **(params.get("relocs_in_bounds") or {}),
         )

@@ -100,6 +100,7 @@ workflow:
           time_range: ${{ workflow.time_range.return }}
           event_types:
             - caceria
+          event_states: []
           event_columns:
             - id
             - time
@@ -675,6 +676,7 @@ workflow:
           df: ${{ workflow.relocs.return }}
           roi_gdf: null
           roi_name: null
+          bounding_box: null
           reset_index: true
 
       - id: trajs

@@ -283,43 +283,6 @@
       "required": [],
       "title": ""
     },
-    "events_raw": {
-      "additionalProperties": false,
-      "properties": {
-        "event_states": {
-          "default": null,
-          "items": {
-            "type": "string",
-            "oneOf": [
-              {
-                "const": "new",
-                "title": "New"
-              },
-              {
-                "const": "active",
-                "title": "Active"
-              },
-              {
-                "const": "resolved",
-                "title": "Resolved"
-              },
-              {
-                "const": "review",
-                "title": "Review"
-              }
-            ]
-          },
-          "title": "Event State",
-          "type": "array",
-          "description": "Choose to analyze events with a certain state. If left empty, events of all states will be analyzed",
-          "uniqueItems": true,
-          "ecoscope:advanced": true
-        }
-      },
-      "required": [],
-      "type": "object",
-      "title": ""
-    },
     "event_colormap": {
       "additionalProperties": false,
       "properties": {
@@ -394,22 +357,6 @@
     "relocs_in_bounds": {
       "additionalProperties": false,
       "properties": {
-        "bounding_box": {
-          "allOf": [
-            {
-              "$ref": "#/$defs/BoundingBox"
-            }
-          ],
-          "default": {
-            "min_y": -90.0,
-            "max_y": 90.0,
-            "min_x": -180.0,
-            "max_x": 180.0
-          },
-          "title": "Bounding Box",
-          "description": "Filter events to inside these bounding coordinates.",
-          "ecoscope:advanced": true
-        },
         "filter_point_coords": {
           "default": [],
           "items": {
@@ -543,36 +490,6 @@
       "title": "ViewportSettings",
       "type": "object"
     },
-    "BoundingBox": {
-      "properties": {
-        "min_y": {
-          "default": -90.0,
-          "ecoscope:advanced": true,
-          "title": "Min Latitude",
-          "type": "number"
-        },
-        "max_y": {
-          "default": 90.0,
-          "ecoscope:advanced": true,
-          "title": "Max Latitude",
-          "type": "number"
-        },
-        "min_x": {
-          "default": -180.0,
-          "ecoscope:advanced": true,
-          "title": "Min Longitude",
-          "type": "number"
-        },
-        "max_x": {
-          "default": 180.0,
-          "ecoscope:advanced": true,
-          "title": "Max Longitude",
-          "type": "number"
-        }
-      },
-      "title": "BoundingBox",
-      "type": "object"
-    },
     "Coordinate": {
       "properties": {
         "y": {
@@ -614,12 +531,6 @@
         "min_events"
       ]
     },
-    "relocs_in_bounds": {
-      "ui:order": [
-        "bounding_box",
-        "filter_point_coords"
-      ]
-    },
     "download_attachments": {
       "ui:order": [
         "attachments_subdir",
@@ -632,7 +543,6 @@
       "time_range",
       "base_maps",
       "viewport_settings",
-      "events_raw",
       "event_colormap",
       "event_layer",
       "hotspots_clustered",
